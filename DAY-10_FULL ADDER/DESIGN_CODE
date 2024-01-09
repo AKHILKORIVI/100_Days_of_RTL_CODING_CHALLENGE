@@ -1,1 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/08/2024 01:40:38 AM
+// Design Name: 
+// Module Name: Full_adder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module Full_adder(
+    input A, B, C,
+    output sum, carry
+);
+
+ wire w1, w2, w3;
+
+    assign sum = A ^ B ^ C;
+    assign w1 = A & B;
+    assign w2 = B & C;
+    assign w3 = C & A;
+    assign carry = w1 | w2 | w3; 
+
+endmodule
 
