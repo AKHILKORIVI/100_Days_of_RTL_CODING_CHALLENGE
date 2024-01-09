@@ -1,1 +1,40 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/07/2024 01:58:19 PM
+// Design Name: 
+// Module Name: All_logic_gates_testing
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+module All_logic_gates(
+  input A, B,
+  output Yn, Ya, Yo, Yna, Yno, Yx, Yxn
+);
+
+  assign Yn = !A;
+  assign Ya = (A & B);
+  assign Yo = (A | B);
+  assign Yna = !(A & B);
+  assign Yno = !(A | B);
+  assign Yx = (A ^ B);
+  assign Yxn = !(A ^ B);
+
+endmodule
+
+
 
