@@ -1,1 +1,29 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: KORIVI AKHIL
+// 
+// Create Date: 01/02/2024 04:54:38 PM
+// Design Name: 
+// Module Name: OR_GATE
+// Project Name: OR_GATE_DESIGN_CODE
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module OR_GATE(Y, A, B);
+  input A, B;
+  output Y;
+  assign Y = A | B;
+endmodule
+
+
 
