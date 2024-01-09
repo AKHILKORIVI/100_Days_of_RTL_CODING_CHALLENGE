@@ -1,1 +1,40 @@
+`timescale 1ns / 1ps
+// Company: 
+// Engineer: KORIVI AKHIL
+// Create Date: 01/06/2024 05:01:58 PM
+// Design Name: 
+// Module Name: or_gate_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
 
+
+
+// Testbench module
+module or_gate_tb;
+  reg A;
+  reg B;
+  wire Y;
+
+  // Instantiate the OR_GATE module
+  OR_GATE dut(.A(A), .B(B), .Y(Y));
+  
+  initial begin
+    A = 0; B = 0;
+    #100; 
+    A = 0; B = 1;
+    #100;
+    A = 1; B = 0;
+    #100; 
+    A = 1; B = 1;
+    #100;
+    $finish;
+  end
+endmodule
