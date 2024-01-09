@@ -1,1 +1,28 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/06/2024 12:03:25 AM
+// Design Name: 
+// Module Name: XNOR_GATE
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module xnor_gate(Y, A, B);
+  input A, B;
+  output Y;
+  assign Y = !(A ^ B); //implementing XNOR gate using XOR and NOT
+endmodule
 
