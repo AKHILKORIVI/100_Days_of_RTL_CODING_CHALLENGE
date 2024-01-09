@@ -1,1 +1,38 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/07/2024 01:59:56 AM
+// Design Name: 
+// Module Name: All_logic_gates_testing_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module All_logic_gates_tb;
+  reg A, B;
+  wire Yn, Ya, Yo, Yna, Yno, Yx, Yxn;
+
+  // Instantiate the module under test
+  All_logic_gates dut(.A(A), .B(B), .Yn(Yn), .Ya(Ya), .Yo(Yo), .Yna(Yna), .Yno(Yno), .Yx(Yx), .Yxn(Yxn));
+
+  initial begin
+ 
+    A=0; B=0; #10;
+    A=0; B=1; #10;
+    A=1; B=0; #10;
+    A=1; B=1; #10;
+   $finish;
+  end
+endmodule
 
