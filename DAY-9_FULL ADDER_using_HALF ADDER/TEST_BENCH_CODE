@@ -1,1 +1,45 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/08/2024 01:20:46 AM
+// Design Name: 
+// Module Name: Fulladder_using_Halfadder_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module fulladder_using_halfadders_tb;
+    reg A, B, C;
+    wire sum, carry;
+Fulladder_using_Halfadder fulladder_inst (
+        .A(A),
+        .B(B),
+        .C(C),
+        .sum(sum),
+        .carry(carry)
+    );
+   initial begin
+A=0;B=0;C=0; #10;
+A=0;B=0;C=1; #10;
+A=0;B=1;C=0; #10;
+A=0;B=1;C=1; #10;
+A=1;B=0;C=0; #10;
+A=1;B=0;C=1; #10;
+A=1;B=1;C=0; #10;
+A=1;B=1;C=1; #10;
+$finish;
+end 
+endmodule
 
