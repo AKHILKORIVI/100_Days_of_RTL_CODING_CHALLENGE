@@ -1,1 +1,26 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/06/2024 07:24:14 PM
+// Design Name: 
+// Module Name: xor_gate
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
+module xor_gate(Y, A, B);
+  input A, B;
+  output Y;
+  assign Y = A ^ B;
+endmodule
