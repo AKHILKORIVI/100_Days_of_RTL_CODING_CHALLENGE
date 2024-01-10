@@ -1,1 +1,33 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: KORIVI AKHIL
+// 
+// Create Date: 01/10/2024 10:56:23 PM
+// Design Name: KORIVI AKHIL
+// Module Name: Half_subtractor
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Half_subtractor(diff, borr, A, B);
+  input A, B;
+  output diff, borr;
+  wire w1;
+  
+  xor g1(diff, A, B);
+  not w2(w1, A);
+  and g3(borr, w1, B);
+  
+endmodule
 
