@@ -1,1 +1,34 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/12/2024 05:57:32 PM
+// Design Name: 
+// Module Name: Full_subtractor
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
+
+module Full_subtractor(A,B,bin,Diff,borr);
+ input A,B,bin;
+ output Diff,borr;
+ wire w1,w2,w3,w4,w5,w6;
+ 
+ xor G1(Diff,A,B,bin);
+ and g2(w4,w1,B);
+ and g3(w5,w1,B);
+ and g4(w6,B,bin);
+ or g5(borr,w4,w5,w6);
+ 
+ endmodule
