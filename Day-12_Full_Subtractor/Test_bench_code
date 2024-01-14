@@ -1,1 +1,48 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/12/2024 11:47:39 AM
+// Design Name: 
+// Module Name: Full_subtractor_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+// Test Bench
+module FULL_SUBTRACTOR_tb;
+  reg A, B, bin;
+  wire diff, borr;
+
+  // Instantiate the FULL_SUBTRACTOR module
+  Full_subtractor dut(
+    .A(A),
+    .B(B),
+    .bin(bin),
+    .Diff(diff),
+    .borr(borr)
+  );
+
+  initial begin
+    A = 0; B = 0; bin = 0; #10;
+    A = 0; B = 0; bin = 1; #10;
+    A = 0; B = 1; bin = 0; #10;
+    A = 0; B = 1; bin = 1; #10;
+    A = 1; B = 0; bin = 0; #10;
+    A = 1; B = 0; bin = 1; #10;
+    A = 1; B = 1; bin = 0; #10;
+    A = 1; B = 1; bin = 1; #10;
+    $finish;
+  end
+endmodule
 
