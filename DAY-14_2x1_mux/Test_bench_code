@@ -1,1 +1,44 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/16/2024 03:34:56 PM
+// Design Name: 
+// Module Name: 2x1 multiplexer_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module mux_2to1_tb;
+  reg D0,D1,S;
+  wire Y;
+
+  // Instantiate the 2-to-1 multiplexer module
+  mux_2to1 uut (
+    .Y(Y),
+    .D0(D0),
+    .D1(D1),
+    .S(S)
+  );
+
+  initial begin
+    D0 = 1; D1 = 0; S = 0; #10;
+    D0 = 0; D1 = 1; S = 1; #10;
+    D0 = 1; D1 = 0; S = 0; #10;
+    D0 = 0; D1 = 1; S = 1; #10;
+    $finish;
+  end
+endmodule
+
 
