@@ -1,1 +1,47 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: KORIVI AKHIL
+// 
+// Create Date: 01/15/2024 06:33:45 PM
+// Design Name: 
+// Module Name: 8x1_mux
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module mux_8x1 (
+    output Y,
+    input S0, S1, S2,
+    input D0, D1, D2, D3, D4, D5, D6, D7
+);
+
+    wire w1, w2, w3;
+
+    not g1(w1, S0);
+    not g2(w2, S1);
+    not g3(w3, S2);
+
+    and g4(D0, w1, w2, w3);
+    and g5(D1, w1, S1, w3);
+    and g6(D2, S0, w2, S2);
+    and g7(D3, S1, w1, S2);
+    and g8(D4, S0, S1, w3);
+    and g9(D5, w1, S1, S2);
+    and g10(D6, S0, w2, w3);
+    and g11(D7, S0, S1, S2);
+
+    or g12(Y, D0, D1, D2, D3, D4, D5, D6, D7);
+
+endmodule
+
 
