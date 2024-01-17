@@ -1,1 +1,56 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/15/2024 12:30:03 PM
+// Design Name: 
+// Module Name: 8x1_mux_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_mux_8x1;
+reg S0, S1, S2, D0, D1, D2, D3, D4, D5, D6, D7;
+wire Y;
+
+    // Instantiate the mux_8x1 module
+    mux_8x1 uut (
+        .Y(Y),
+        .S0(S0),
+        .S1(S1),
+        .S2(S2),
+        .D0(D0),
+        .D1(D1),
+        .D2(D2),
+        .D3(D3),
+        .D4(D4),
+        .D5(D5),
+        .D6(D6),
+        .D7(D7)
+    );
+
+    initial begin
+   // Test case 1
+  S0 = 0; S1 = 0; S2 = 0;
+  D0 = 1; D1 = 0; D2 = 0; D3 = 0; D4 = 0; D5 = 0; D6 = 0; D7 = 0;
+         #10;
+    // Test case 2
+  S0 = 1; S1 = 0; S2 = 1;
+  D0 = 1; D1 = 0; D2 = 0; D3 = 0; D4 = 0; D5 = 1; D6 = 0; D7 = 0;
+  $stop;
+    end
+endmodule
+
+
 
