@@ -1,1 +1,32 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 01/14/2024 03:16:19 PM
+// Design Name: KORIVI AKHIL
+// Module Name: 2X1 multiplexer
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module mux_2to1 (
+  output Y,
+  input D0, D1, S
+);
+  wire w1, w2, w3;
+not g1(w1, S);
+and g2(w2, D0, w1);
+and g3(w3, D1, S);
+or g4(Y, w2, w3);
+endmodule
 
