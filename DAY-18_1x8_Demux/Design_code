@@ -1,1 +1,37 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/18/2024 05:16:41 PM
+// Design Name: 
+// Module Name: 1x8_Demux
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+
+
+module Demux_1x8(y0, y1, y2, y3, y4, y5, y6, y7, E, S0, S1, S2);
+  input E, S0, S1, S2;
+  output y0, y1, y2, y3, y4, y5, y6, y7;
+  
+  and g1(y0, E, ~S0, ~S1, ~S2);
+  and g2(y1, E, ~S0, ~S1, S2);
+  and g3(y2, E, ~S0, S1, ~S2);
+  and g4(y3, E, ~S0, S1, S2);
+  and g5(y4, E, S0,  ~S1, ~S2);
+  and g6(y5, E, S0,  ~S1, S2);
+  and g7(y6, E, S0,  S1,  ~S2);
+  and g8(y7, E, S0,  S1, S2);
+  
+endmodule
+
+
 
