@@ -1,1 +1,51 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/18/2024 08:00:54 PM
+// Design Name: 
+// Module Name: 1x8_Demux_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Demux_1x8_tb();
+  reg E, S0, S1, S2;
+  wire y0, y1, y2, y3, y4, y5, y6, y7;
+
+  Demux_1x8 uut(
+    .E(E),
+    .S0(S0),
+    .S1(S1),
+    .S2(S2),
+    .y0(y0),
+    .y1(y1),
+    .y2(y2),
+    .y3(y3),
+    .y4(y4),
+    .y5(y5),
+    .y6(y6),
+    .y7(y7)
+  );
+
+  initial begin
+E = 1; S0 = 0; S1 = 0; S2 = 0; #10;
+E = 1; S0 = 0; S1 = 0; S2 = 1; #10;
+E = 1; S0 = 0; S1 = 1; S2 = 0; #10;
+E = 1; S0 = 0; S1 = 1; S2 = 1;#10;
+$finish;
+  end
+endmodule
+
 
