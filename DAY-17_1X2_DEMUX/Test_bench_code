@@ -1,1 +1,44 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/16/2024 04:44:37 PM
+// Design Name: 
+// Module Name: 1x4_demux_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+
+
+module testbench;
+
+  reg I, E, S0;
+  wire y0, y1;
+  
+  // Instantiate the demux_1x2 module
+  demux_1x2 my_demux(
+    .y0(y0),
+    .y1(y1),
+    .E(E),
+    .S0(S0),
+    .I(I)
+  );
+
+  // Initial block for testbench stimulus
+  initial begin
+E = 1; S0 = 0; I = 1; #10;
+E = 1; S0 = 1; I = 1; #10; 
+E = 0; S0 = 0; I = 1; #10;
+$finish;
+  end
+endmodule
 
