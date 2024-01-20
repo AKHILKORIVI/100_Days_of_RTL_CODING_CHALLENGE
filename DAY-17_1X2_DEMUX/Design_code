@@ -1,1 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/16/2024 04:25:38 PM
+// Design Name: 
+// Module Name: 1x2_demux
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+
+
+
+module demux_1x2(y0, y1, E, S0, I);
+  input I, E, S0;
+  output y0, y1;
+  wire w1, w2;
+  
+ 
+  not g1(w1, E);
+  not g2(w2, S0);
+  
+  and g3(y0, E, w2, I);
+  and g4(y1, E, S0, I);
+  
+endmodule
 
