@@ -1,1 +1,32 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 01/19/2024 10:02:01 PM
+// Design Name: 
+// Module Name: _4x2_encoder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+ module _4x2_encoder (
+  input Y0, Y1, Y2, Y3,
+  output A1, A0);
+    
+  or g5(A1, Y2, Y3);
+  or g6(A0, Y3, Y1);
+
+endmodule
