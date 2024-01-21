@@ -1,1 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/20/2024 12:17:14 AM
+// Design Name: 
+// Module Name: _4x2_Priority_Encoder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module _4x2_Priority_Encoder (
+  input I0, I1, I2, I3,
+  output y0, y1);
+   wire w0, w1, w2, w3;
+
+  not g4(w0, I2);
+  not g5(w1, I3);
+  or g1(y0, I2, I3);
+  and g2(w2, w0, I1);
+  or g3(y1, w2, I3);
+
+endmodule
+
 
