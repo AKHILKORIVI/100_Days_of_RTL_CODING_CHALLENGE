@@ -1,1 +1,46 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/20/2024 12:42:50 AM
+// Design Name: 
+// Module Name: _4x2_Priority_Encoder_TB
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+
+
+
+
+module tb_4x2_Priority_Encoder;
+  reg I0, I1, I2, I3;
+  wire y0, y1;
+
+  _4x2_Priority_Encoder uut (
+    .I0(I0),
+    .I1(I1),
+    .I2(I2),
+    .I3(I3),
+    .y0(y0),
+    .y1(y1)
+  );
+
+  initial begin
+    I0 = 0; I1 = 0; I2 = 0; I3 = 1; #10; //I3 has the highest priority
+    I0 = 0; I1 = 0; I2 = 1; I3 = 0; #10; //I2 has the highest priority
+    I0 = 0; I1 = 1; I2 = 0; I3 = 0; #10; //I1 has the highest priority
+    I0 = 1; I1 = 0; I2 = 0; I3 = 0; #10; //I0 has the highest priority
+    I0 = 0; I1 = 0; I2 = 0; I3 = 0; #10; //No input is active
+    $finish;
+  end
+endmodule
+
 
