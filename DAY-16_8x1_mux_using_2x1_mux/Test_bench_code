@@ -1,1 +1,42 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: KORIVI AKHIL
+// 
+// Create Date: 01/16/2024 09:22:14 PM
+// Design Name: 
+// Module Name: 8x1_mux_2x1_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+
+`timescale 1ps / 1ps
+
+module tb_mux_8x1;
+
+  reg [7:0] I;
+  reg [2:0] S;
+  wire out;
+
+  mux_8x1 uut (
+    .I(I),
+    .S(S),
+    .out(out)
+  );
+
+  initial begin
+I = 8'b11001100; S = 3'b000; #10;
+I = 8'b10101010; S = 3'b001; #10;
+I = 8'b01011101; S = 3'b110; #10;
+    $stop; 
+  end
+endmodule
 
