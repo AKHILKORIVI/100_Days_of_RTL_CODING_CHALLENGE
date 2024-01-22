@@ -48,5 +48,6 @@ module mux_8x1 (
 
   mux_2to1 M5(.Yout(y[5]), .I(y[2:1]), .S(S[1]));
   mux_2to1 M6(.Yout(y[6]), .I(y[4:3]), .S(S[1]));
+
   mux_2to1 M7(.Yout(out), .I(y[6:5]), .S(S[2]));
 endmodule
