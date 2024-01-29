@@ -1,1 +1,41 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/22/2024 10:21:14 PM
+// Design Name: 
+// Module Name: one_bit_comparator
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+
+
+module bit_comparator(
+  input A, B,
+  output A_lt_B, A_gt_B, A_eq_B
+);
+
+  wire w1, w2, w3, w4, w5;
+
+  and G1(w3, A, w2);
+  xnor G2(w4, A, B);
+  and G3(w5, w1, B);
+  not G4(w1, A);
+  not G5(w2, B);
+
+  assign A_lt_B = w5;
+  assign A_gt_B = w3;
+  assign A_eq_B = w4;
+
+
+endmodule
+
 
