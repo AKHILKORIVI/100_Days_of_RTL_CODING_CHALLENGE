@@ -1,1 +1,41 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/23/2024 04:46:30 PM
+// Design Name: 
+// Module Name: 2_bit_comparator_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module tb_TwoBitComparator;
+  reg [1:0] A, B;
+  wire gt, lt, eq;
+  
+  TwoBitComparator dut (
+    .A(A),
+    .B(B),
+    .gt(gt),
+    .lt(lt),
+    .eq(eq)
+  );
+
+  initial begin
+  A = 2'b10; B = 2'b01; #10; 
+  A = 2'b01; B = 2'b10; #10;  
+    $finish;
+  end
+
+endmodule
 
