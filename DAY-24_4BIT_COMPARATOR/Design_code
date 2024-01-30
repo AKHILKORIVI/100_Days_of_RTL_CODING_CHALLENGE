@@ -1,1 +1,32 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/24/2024 08:44:11 PM
+// Design Name: 
+// Module Name: comparator_4_bit
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module bit_4bit_comparator(
+  input [3:0] A, B,
+  output gt, lt, eq
+);
+
+  assign gt = (A > B);
+  assign lt = (A < B);
+  assign eq = (A == B);
+
+endmodule
 
