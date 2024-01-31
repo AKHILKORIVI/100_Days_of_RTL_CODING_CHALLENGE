@@ -1,1 +1,32 @@
-D
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/25/2024 03:41:17 AM
+// Design Name: 
+// Module Name: BCD_to_DECIMAL_ENCODER
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module BCD_to_DECIMAL_ENCODER(in,A,B,C,D);
+  input [9:0] in;
+  output A, B, C, D;
+  or g1(A, in[1], in[3], in[5], in[7], in[9]);         
+  or g2(B, in[2], in[3], in[6], in[7]);           
+  or g3(C, in[4], in[5], in[6], in[7]);        
+  or g4(D, in[8], in[9]);                   
+
+endmodule
+
