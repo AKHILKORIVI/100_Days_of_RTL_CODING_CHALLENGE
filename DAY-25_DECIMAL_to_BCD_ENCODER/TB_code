@@ -1,1 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/31/2024 02:10:22 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+  module tb;
+  reg [9:0] in;
+  wire A, B, C, D;
+   BCD_to_DECIMAL_ENCODER uut (.in(in),.A(A),.B(B),.C(C),.D(D));
+   initial begin 
+   in = 10'b0000000000;#10;
+   in = 10'b0100000000;#10;
+   in = 10'b0010000000;#10;
+   in = 10'b0001000000;#10;
+   
+   $finish;
+   end
+  endmodule
 
