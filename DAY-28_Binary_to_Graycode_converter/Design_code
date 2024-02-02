@@ -1,1 +1,33 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL 
+// 
+// Create Date: 01/29/2024 07:44:47 PM
+// Design Name: 
+// Module Name: Binary_to_Graycode_converter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+module Binary_to_Graycode_converter(D, E, F, A, B, C);
+  input A, B, C;
+  output D, E, F;
+
+  and g1(D, A);
+  xor g2(E, A, B);
+  xor g3(F, B, C);
+endmodule
 
