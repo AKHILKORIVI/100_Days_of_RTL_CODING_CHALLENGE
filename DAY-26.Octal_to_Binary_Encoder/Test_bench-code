@@ -1,1 +1,44 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/26/2024 10:36:01 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+module tb_octal_to_Binary_Encoder;
+
+  reg [2:0] in;
+  wire Y0, Y1, Y2;
+
+  octal_to_Binary_Encoder uut(Y0, Y1, Y2, in);
+  initial begin
+    
+    in = 3'b000;#10;
+    in = 3'b010;#10;
+    in = 3'b110;#10;
+    in = 3'b001;#10;
+    in = 3'b110;#10;
+    in = 3'b100;#10;
+    in = 3'b111;#10;
+    
+   $finish;
+   end
+  endmodule
+
 
