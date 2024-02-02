@@ -1,1 +1,33 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/26/2024 02:34:57 PM
+// Design Name: 
+// Module Name: Octal-to_Binary-Encoder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+
+
+
+module octal_to_Binary_Encoder(Y0, Y1, Y2, in);
+  input [2:0] in;
+  output Y0, Y1, Y2;
+
+
+  and (Y2, in[0]);
+  and (Y1, in[1]);
+  and (Y0, in[2]);
+
+endmodule
 
