@@ -1,1 +1,32 @@
 
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/30/2024 09:22:21 PM
+// Design Name: 
+// Module Name: Even_parity_Generator
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Even_parity_Generator( A,B,C,Peven);
+input A,B,C;
+output Peven;
+wire w1;
+
+xor g1(w1,A,C);
+xor g2(Peven,w1,B);
+
+endmodule
