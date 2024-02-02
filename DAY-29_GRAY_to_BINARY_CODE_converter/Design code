@@ -1,1 +1,33 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/29/2024 08:22:44 PM
+// Design Name: 
+// Module Name: Gray_to_Binarycode_converter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Gray_to_Binarycode_converter(G3,G2,G1,G0,B3,B2,B1,B0);
+input G3,G2,G1,G0;
+output B3,B2,B1,B0;
+
+xor g1(B0,G3,G2,G1,G0);
+xor g2(B1,G3,G2,G1);
+xor g3(B2,G3,G2);
+and g4(B3,G3);
+
+endmodule
 
