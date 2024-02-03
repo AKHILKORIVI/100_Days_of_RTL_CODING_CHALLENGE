@@ -1,1 +1,49 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/21/2024 11:10:17 AM
+// Design Name: 
+// Module Name: Tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+module _8x3_Encoder_tb;
+
+  reg E;
+  reg [7:0] I;
+  wire [2:0] Y;
+  _8x3_Encoder uut (
+    .E(E),
+    .I(I),
+    .Y(Y));
+  initial begin
+    E = 0;
+    #5 E = 1;
+    #5 E = 0;
+    #5 E = 1;
+    #100 $finish;
+  end
+
+  initial begin
+    I = 8'b10000000; #10;
+    I = 8'b01000000; #10;
+    I = 8'b00100000; #10;
+  end
+endmodule
 
