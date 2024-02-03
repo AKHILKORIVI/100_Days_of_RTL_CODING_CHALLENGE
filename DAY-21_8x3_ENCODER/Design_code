@@ -1,1 +1,48 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/21/2024 10:29:53 AM
+// Design Name: 
+// Module Name: 8x3_Encoder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+module _8x3_Encoder (
+  input E,
+  input [7:0] I,
+  output reg [2:0] Y
+);
+
+always @(E, I) begin
+  if (E == 1) begin
+    if (I[7] == 1) Y = 3'b111;
+    else if (I[6] == 1) Y = 3'b110;
+    else if (I[5] == 1) Y = 3'b101;
+    else if (I[4] == 1) Y = 3'b100;
+    else if (I[3] == 1) Y = 3'b011;
+    else if (I[2] == 1) Y = 3'b010;
+    else if (I[1] == 1) Y = 3'b001;
+    else if (I[0] == 1) Y = 3'b000;
+    else Y = 3'b000; //for default case
+  end
+end
+
+endmodule
+
 
