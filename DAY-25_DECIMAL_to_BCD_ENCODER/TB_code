@@ -23,7 +23,7 @@
   module tb;
   reg [9:0] in;
   wire A, B, C, D;
-   BCD_to_DECIMAL_ENCODER uut (.in(in),.A(A),.B(B),.C(C),.D(D));
+   DECIMAL_to_BCD_ENCODER uut (.in(in),.A(A),.B(B),.C(C),.D(D));
    initial begin 
    in = 10'b0000000000;#10;
    in = 10'b0100000000;#10;
