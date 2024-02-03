@@ -5,7 +5,7 @@
 // 
 // Create Date: 01/25/2024 03:41:17 AM
 // Design Name: 
-// Module Name: BCD_to_DECIMAL_ENCODER
+// Module Name: DECIMAL_to_BCD_ENCODER
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module BCD_to_DECIMAL_ENCODER(in,A,B,C,D);
+module DECIMAL_to_BCD_ENCODER(in,A,B,C,D);
   input [9:0] in;
   output A, B, C, D;
   or g1(A, in[1], in[3], in[5], in[7], in[9]);         
