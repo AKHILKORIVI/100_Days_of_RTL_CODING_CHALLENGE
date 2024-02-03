@@ -1,1 +1,33 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 01/31/2024 11:24:03 PM
+// Design Name: 
+// Module Name: Odd_parity_Generator
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module Odd_parity_Generator( A, B, C, Podd);
+  input A, B, C;
+  output Podd;
+  wire w1;
+
+  xor g1(w1, A, B);
+  xnor g2(Podd, w1, C);
+
+endmodule
+
+
 
