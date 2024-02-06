@@ -1,1 +1,52 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/03/2024 04:31:01 PM
+// Design Name: 
+// Module Name: Tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+`timescale 1ns / 1ps
+
+module testbench;
+
+    reg [3:0] D;
+    wire a, b, c, d, e, f, g;
+
+    BCD_to_SEVEN_SEGMENT uut (
+        .D(D),
+        .a(a),
+        .b(b),
+        .c(c),
+        .d(d),
+        .e(e),
+        .f(f),
+        .g(g) );
+
+    initial begin
+        D = 4'b0000; #10;
+        D = 4'b0101; #10;
+        D = 4'b1001; #10;
+        D = 4'b0100; #10;
+        D = 4'b0101; #10;
+        D = 4'b1001; #10;
+
+   $finish;
+    end
+
+endmodule
 
