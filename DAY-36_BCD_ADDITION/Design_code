@@ -1,1 +1,56 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/05/2024 02:21:15 PM
+// Design Name: 
+// Module Name: BCD-ADDITION
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+module BCD_ADDITION(
+  input [3:0] a,
+  input [3:0] b,
+  input Cin,
+  output [3:0] Sum,
+  output Carry
+);
+
+  reg [4:0] temp;
+  reg [3:0] Sum_temp;
+  reg Carry;
+
+  always @(a, b, Cin) begin
+    temp = a + b + Cin;
+
+    if (temp > 9) begin
+      temp = temp + 6;
+      Carry = 1;
+    end else begin
+      Carry = 0;
+    end
+
+    Sum_temp = temp[3:0]; // Assign Sum_temp to the proper value
+  end
+
+  assign Sum = Sum_temp; // Assign Sum to Sum_temp
+
+endmodule
+
 
