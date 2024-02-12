@@ -1,0 +1,42 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/12/2024 10:31:27 AM
+// Design Name: 
+// Module Name: TB
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+module tb_Tristate_Buffer;
+  reg a;
+  reg en;
+  wire b;
+  Tristate_Buffer uut (
+    .a(a),
+    .en(en),
+    .b(b));
+  initial begin
+    en = 0; a = 1; #10;
+    en = 1; a = 1; #10;
+    en = 1; a = 0; #10;
+    en = 1; a = 1; #10;
+    $finish;
+  end
+endmodule
+
+
