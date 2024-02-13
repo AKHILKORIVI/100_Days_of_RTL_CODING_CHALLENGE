@@ -1,0 +1,29 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/11/2024 04:56:14 PM
+// Design Name: 
+// Module Name: SR_Latch_using_NAND_GATES
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module SR_Latch_using_NAND_GATES(Q,Qbar,S,R);
+input S,R;
+output Q,Qbar;
+nand g1(Q,S,Qbar);
+nand g2(Qbar,R,Q);
+endmodule
+
