@@ -1,0 +1,39 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/11/2024 05:06:32 PM
+// Design Name: 
+// Module Name: TB
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+`timescale 1ns / 1ps
+
+module testbench_SR_Latch;
+  reg S, R;
+  wire Q, Qbar;
+
+  SR_Latch_using_NAND_GATES sr_latch_inst (
+    .S(S), .R(R), .Q(Q), .Qbar(Qbar));
+  initial begin
+    S = 0; R = 0;  #10
+    S = 1; R = 0; #10
+    S = 0; R = 0; #10
+    S = 0; R = 0; #10
+  $finish;
+  end
+
+endmodule
+
