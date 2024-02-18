@@ -1,0 +1,51 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: KORIVI AKHIL
+// 
+// Create Date: 02/07/2024 02:56:43 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+module tb_CSA;
+
+  reg [3:0] x, y, z;
+  wire [4:0] s;
+  wire cout;
+
+  CSA uut (
+    .x(x),
+    .y(y),
+    .z(z),
+    .s(s),
+    .cout(cout)
+  );
+  initial begin
+
+    x = 4'b0000;
+    y = 4'b0000;
+    z = 4'b0000;
+
+    #10 x = 4'b0010;
+    #10 y = 4'b0011;
+    #10 z = 4'b0100;
+
+    #10 $stop;
+  end
+
+endmodule
