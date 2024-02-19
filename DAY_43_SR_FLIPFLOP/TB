@@ -1,0 +1,57 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/12/2024 02:48:58 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module testbench();
+
+  reg S, R, Clk;
+  wire Q, Qbar;
+
+  SR_Flipflop uut (
+    .S(S),
+    .R(R),
+    .Clk(Clk),
+    .Q(Q),
+    .Qbar(Qbar)
+  );
+
+  // Clock generation
+  initial begin
+    Clk = 0;
+
+    forever #5 Clk = ~Clk;
+  end
+
+  // Stimulus
+  initial begin
+    S = 0;
+    R = 0;
+    #10
+
+    S = 1; R = 0; #10;
+    S = 0; R = 1; #10;
+    S = 1; R = 1; #10;
+    S = 0; R = 0; #10;
+
+    $finish;
+  end
+endmodule
+
