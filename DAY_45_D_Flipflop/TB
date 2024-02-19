@@ -1,0 +1,47 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/19/2024 05:00:54 PM
+// Design Name: 
+// Module Name: TB
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module testbench();
+
+  reg D, Clk;
+  wire Q;
+
+  D_Flipflop uut (.D(D),.Clk(Clk),.Q(Q));
+
+  initial begin
+    Clk = 0;
+
+    forever #5 Clk = ~Clk;
+  end
+
+  initial begin
+    D = 0;
+    #10
+
+    D = 1; #10;
+    D = 0; #10;
+    D = 1; #10;
+    D = 0; #10;
+
+    $finish;
+  end
+endmodule
