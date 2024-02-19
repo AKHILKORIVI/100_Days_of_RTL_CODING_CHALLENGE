@@ -1,0 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/12/2024 12:32:52 PM
+// Design Name: 
+// Module Name: SR_FLIPFLOP
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module SR_Flipflop(Q,Qbar,S,R,Clk);
+input S,R,Clk;
+output Q,Qbar;
+
+wire nand1_out;
+wire nand2_out;
+
+nand g1(nand1_out,S,Clk);
+nand g2(nand2_out,R,Clk);
+nand g3(Q,nand1_out,Qbar);
+nand g4(Qbar,nand2_out,Q);
+
+endmodule
+
