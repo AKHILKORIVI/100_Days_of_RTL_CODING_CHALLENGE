@@ -1,0 +1,28 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/10/2024 04:19:22 PM
+// Design Name: 
+// Module Name: RS_NOR_LATCH
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module SR_NOR_LATCH(Q,Qbar,S,R);
+input S,R;
+output Q,Qbar;
+nor g1(Q,S,Qbar);
+nor g2(Qbar,R,Q);
+endmodule
