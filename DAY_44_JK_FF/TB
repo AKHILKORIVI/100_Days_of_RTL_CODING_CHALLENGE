@@ -1,0 +1,54 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/13/2024 04:27:41 PM
+// Design Name: 
+// Module Name: TB
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+module testbench();
+
+  reg J, K, Clk;
+  wire Q;
+
+  JK_flipflop uut (
+    .J(J),
+    .K(K),
+    .Clk(Clk),
+    .Q(Q)
+  );
+
+  initial begin
+    Clk = 0;
+    forever #5 Clk = ~Clk;
+  end
+
+  initial begin
+    J = 0;
+    K = 0;#10
+
+    J = 1; K = 0; #10;
+    J = 0; K = 1; #10;
+    J = 1; K = 1; #10;
+    J = 0; K = 0; #10;
+ $finish;
+  end
+
+endmodule
+
+
