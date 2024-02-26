@@ -1,0 +1,37 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: KORIVI AKHIL
+// 
+// Create Date: 02/15/2024 11:30:22 PM
+// Design Name: 
+// Module Name: T_ff
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module T_Flipflop(
+  input T,
+  input Clk,
+  output reg Q
+);
+
+always @(posedge Clk or posedge T) begin
+  if (T) begin
+    Q <= ~Q; // Toggle Q when T is asserted
+  end
+end
+
+endmodule
+
+
+
