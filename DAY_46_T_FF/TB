@@ -1,0 +1,50 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/15/2024 11:48:08 AM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+module tb_T_Flipflop;
+  reg T;
+  reg Clk;
+  wire Q;
+
+  T_Flipflop uut (.T(T),.Clk(Clk),.Q(Q));
+
+  initial begin
+    Clk = 0;
+    forever #5 Clk = ~Clk; // Toggle clock every 5 time units
+  end
+  initial begin
+     T = 1; #10;
+     T = 0; #10;
+     T = 1; #10;
+     T = 0; #10;
+ $finish;
+  end
+
+endmodule
