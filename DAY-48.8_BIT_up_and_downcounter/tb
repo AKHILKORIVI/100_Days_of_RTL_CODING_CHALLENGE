@@ -1,0 +1,65 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/18/2024 04:47:22 PM
+// Design Name: 
+// Module Name: Tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+module UpDownCounter_TB;
+    reg clk;
+    reg rst;
+    reg enable;
+    reg mode;
+    wire [7:0] count;
+    
+    UpDownCounter uut (
+        .clk(clk),
+        .rst(rst),
+        .enable(enable),
+        .mode(mode),
+        .count(count)
+    );
+    
+    always #5 clk = ~clk; // Toggle the clock every 5 time units
+    
+    initial begin
+        // Initialize inputs
+        clk = 0;
+        rst = 1; // initially resetting the device
+        enable = 0;
+        mode = 0;
+
+        // Apply reset
+        rst = 0; #10;
+
+        // Test case 1: Up-counting when enable=1
+        enable = 1; #10;
+        enable = 0; #50;
+
+        // Test case 2: Down-counting when enable=1
+        mode = 1; // Set mode to down-counting
+        enable = 1; #10;
+        enable = 0; #10;
+
+        $finish;
+    end
+endmodule
+
