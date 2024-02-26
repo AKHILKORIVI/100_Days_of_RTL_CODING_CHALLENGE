@@ -1,0 +1,46 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/18/2024 04:17:23 PM
+// Design Name: 
+// Module Name: eight_BIT_up_Down_counter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module UpDownCounter (
+    input wire clk,
+    input wire rst,
+    input wire enable,
+    input wire mode,
+    output reg [7:0] count
+);
+
+always @(posedge clk or posedge rst) begin
+    if (rst) begin // if reset button is pressed
+        count <= 8'b00000000; // Reset the counter to zero
+    end else if (enable) begin //if reset button not pressed
+        if (mode) begin
+            // Up-counting
+            count <= count + 1;
+        end else begin
+            // Down-counting
+            count <= count - 1;
+        end
+    end
+end
+
+endmodule
+
