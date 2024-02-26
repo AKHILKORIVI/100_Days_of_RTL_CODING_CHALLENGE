@@ -1,0 +1,44 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/26/2024 12:21:10 PM
+// Design Name: 
+// Module Name: Tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+module tb_D_latch;
+  reg D, E;
+  wire Q;
+  D_latch uut(.D(D),.E(E),.Q(Q));
+
+  initial begin
+  // Test case 1: Set D to 1, activate E at time 10
+     D = 1;#10
+     E = 1;#10
+     E = 0;#10
+  // Test case 2: Set D to 0, activate E at time 20
+     D = 0;#10
+     E = 1;#10
+     E = 0;#10
+  $finish;
+  end
+
+endmodule
+
