@@ -1,0 +1,61 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/18/2024 11:13:50 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+`timescale 1ns / 1ps
+
+module RingCounter_tb;
+  reg clk;
+  reg reset;
+  wire [3:0] q;
+  RingCounter dut (.clk(clk),.reset(reset),.q(q));
+  always begin
+    #5 clk = ~clk; // Toggle the clock every 5 time units
+  end
+  initial begin
+    clk = 0;
+    reset = 1;
+    #10 reset = 0; // Reset low after 10 time units
+
+    // Wait for some clock cycles
+    #20;
+
+    // Test the counter behavior
+    $display("q = %b", q);
+    #5;
+    $display("q = %b", q);
+    #5;
+    $display("q = %b", q);
+    #5;
+    $display("q = %b", q);
+    #5;
+    $display("q = %b", q);
+    #5;
+    $display("q = %b", q);
+    #5;
+    $finish; 
+  end
+
+endmodule
+
