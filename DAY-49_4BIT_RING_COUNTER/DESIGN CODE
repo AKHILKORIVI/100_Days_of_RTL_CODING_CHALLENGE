@@ -1,0 +1,37 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/18/2024 04:12:34 PM
+// Design Name: 
+// Module Name: Ring_counter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module RingCounter(
+  input clk,
+  input reset,
+  output reg [3:0] q
+);
+
+  always @(posedge clk or posedge reset) begin
+    if (reset) begin
+      q <= 4'b0001; // Reset to the initial value
+    end else begin
+      q <= (q << 1) | q[0]; // Shift left and bring the rightmost bit to the left
+    end
+  end
+endmodule
+
+
