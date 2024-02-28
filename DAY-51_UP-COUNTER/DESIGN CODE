@@ -1,0 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/21/2024 12:10:33 PM
+// Design Name: 
+// Module Name: 4_Bit_upcounter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module four_Bit_upcounter(
+    input clk,   
+    input rst,   
+    output reg [3:0] count);
+
+  // Counter logic
+  always @(posedge clk or posedge rst) begin
+    if (rst) begin
+      count <= 4'b0000;   // Reset the counter to 0
+    end else begin
+      count <= count + 1; // Increment the counter value
+    end
+  end
+
+endmodule
