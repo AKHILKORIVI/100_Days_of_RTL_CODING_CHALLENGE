@@ -1,0 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/22/2024 12:57:04 PM
+// Design Name: 
+// Module Name: Down_counter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+module four_Bit_downcounter(
+    input clk,   
+    input rst,   
+    output reg [3:0] count
+);
+
+  // Counter logic
+  always @(posedge clk or posedge rst) begin
+    if (rst) begin
+      count <= 4'b1111; // Reset the counter to 15 (4'b1111)
+    end else begin
+      count <= count - 1; // Decrement the counter value
+    end
+  end
+
+endmodule
