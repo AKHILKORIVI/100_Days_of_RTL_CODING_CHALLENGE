@@ -1,0 +1,49 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/21/2024 01:05:13 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_four_Bit_downcounter;
+
+  // Inputs
+  reg clk;
+  reg rst;
+
+  // Outputs
+  wire [3:0] count;
+
+  // Instantiate the Down Counter
+  four_Bit_downcounter uut (
+    .clk(clk),
+    .rst(rst),
+    .count(count));
+
+  always #5 clk = ~clk;
+
+  // Stimulus generation
+  initial begin
+    clk = 0;
+    rst = 1;
+    #10 rst = 0; // Release reset
+    #50 $finish; // Finish simulation after 50 time units
+  end
+
+endmodule
+
