@@ -1,0 +1,31 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/19/2024 10:48:46 PM
+// Design Name: 
+// Module Name: SIPO
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module SIPO (clock, clear, D, q);
+  input clock, clear, D;
+  output reg [3:0] q;
+
+  always @(posedge clock or posedge clear)
+    if (clear)
+      q <= 4'b0000;
+    else
+      q <= {D, q[3:1]};
+endmodule
