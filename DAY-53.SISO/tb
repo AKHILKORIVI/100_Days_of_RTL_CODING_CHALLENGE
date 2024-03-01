@@ -1,0 +1,53 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 03/02/2024 12:13:15 AM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+module tb_SISO;
+  reg clock;
+  reg clear;
+  reg D;
+  wire q;
+
+  SISO siso_inst (
+    .clock(clock),
+    .clear(clear),
+    .D(D),
+    .q(q));
+  always #5 clock = ~clock;
+  initial begin
+    clock = 0;
+    clear = 0;
+    D = 0;
+    #10 clear = 1;
+    #10 clear = 0; 
+
+    #10 D = 1;
+    #10 D = 0;
+    #10 D = 1;
+
+    #10 $finish;
+  end
+
+endmodule
+
+
+
