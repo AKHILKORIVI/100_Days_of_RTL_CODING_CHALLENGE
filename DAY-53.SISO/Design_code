@@ -1,0 +1,33 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/02/2024 12:12:39 AM
+// Design Name: 
+// Module Name: SISO
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module SISO (clock, clear, D, q);
+  input clock, clear, D;
+  output reg q;
+
+  always @(posedge clock or posedge clear)
+    if (clear)
+      q <= 1'b0;
+    else
+      q <= D;
+endmodule
+
