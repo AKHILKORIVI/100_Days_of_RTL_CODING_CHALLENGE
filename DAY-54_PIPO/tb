@@ -1,0 +1,56 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/24/2024 10:19:34 AM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+module tb_PIPO;
+
+  reg clk, clr;
+  reg [3:0] d;
+  wire [3:0] q;
+
+  // Instantiate the PIPO module
+  PIPO uut (
+    .clk(clk),
+    .clr(clr),
+    .d(d),
+    .q(q));
+
+  // Clock generation
+  always begin
+    #5 clk = ~clk;
+  end
+
+  // Stimulus generation
+  initial begin
+    clk = 0;
+    clr = 0;
+    d = 4'b1101;
+
+    #10 clr = 1;  // Activate clear
+    #10 clr = 0;  // Deactivate clear
+    #20 d = 4'b0010;
+
+    #50 $finish;  // Finish simulation after 50 time units
+  end
+
+endmodule
+
