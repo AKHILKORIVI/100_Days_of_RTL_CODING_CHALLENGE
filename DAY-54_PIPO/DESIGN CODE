@@ -1,0 +1,40 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/24/2024 09:56:22 AM
+// Design Name: 
+// Module Name: PIPO
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+module PIPO(
+  input clk,
+  input clr,
+  input [3:0] d,
+  output reg [3:0] q);
+
+  always @(posedge clk or posedge clr) begin
+    if (clr) begin
+      q <= 4'b0000; // Clear the output when clr is active
+    end else begin
+      q <= d; // Assign input to output on clock edge
+    end
+  end
+
+endmodule
+
+
