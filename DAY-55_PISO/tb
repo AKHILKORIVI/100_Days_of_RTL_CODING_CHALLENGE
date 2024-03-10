@@ -1,0 +1,60 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/25/2024 09:47:19 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+`timescale 1ns / 1ps
+
+module PISO_tb;
+
+  reg [3:0] D;
+  reg S1, Clk, Clear, LorS;
+  wire S0;
+
+  PISO uut (.D(D),.S1(S1),.S0(S0),.Clk(Clk),.LorS(LorS),.Clear(Clear));
+  initial begin
+    D = 4'b1010;
+    S1 = 0;
+    Clk = 0;
+    LorS = 0;
+    Clear = 1;
+    #10;
+    Clear = 0;
+    #10;
+    Clk = 1;
+    #10;
+    Clk = 0;
+    #10;
+    D = 4'b0101;
+    S1 = 1;
+    Clk = 0;
+    LorS = 1;
+    Clear = 1;
+    #10;
+    Clear = 0;
+    #10;
+    Clk = 1;
+    #10;
+    Clk = 0;
+    #10;
+    $finish;
+  end
+
+endmodule
