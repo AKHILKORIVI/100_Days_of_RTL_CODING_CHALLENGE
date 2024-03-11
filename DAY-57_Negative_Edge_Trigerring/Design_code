@@ -1,0 +1,35 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/28/2024 12:41:21 PM
+// Design Name: 
+// Module Name: Negative_Edge_Trigger
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+module negative_edge_trigger (
+  input clk,
+  input data,
+  output reg negedgeDetect);
+  reg data_d;
+
+  always @(negedge clk) begin
+    data_d <= data;
+    negedgeDetect <= (~data) & (data_d);
+  end
+endmodule
