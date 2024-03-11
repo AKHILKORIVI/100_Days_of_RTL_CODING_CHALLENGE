@@ -1,0 +1,62 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 02/27/2024 12:45:56 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+`timescale 1ns/1ps
+
+module tb_negative_edge_trigger;
+  reg clk;
+  reg data;
+  reg reset;
+  wire negedgeDetect;
+
+  negative_edge_trigger uut (
+    .clk(clk),
+    .data(data),
+    .negedgeDetect(negedgeDetect));
+
+  // Clock generation
+  initial begin
+    clk = 0;
+    forever #5 clk = ~clk; // Toggle the clock every 5 time units
+  end
+
+  // Reset generation
+  initial begin
+    reset = 1;
+    #15 reset = 0; // Release reset after 15 time units
+  end
+
+  // Stimulus generation
+  initial begin
+    // Initialize inputs
+    data = 1;
+
+    // Apply stimulus
+    #20 data = 0; // Negative edge should be detected here
+    #10 data = 1; // No edge
+    #20 data = 0; // Negative edge should be detected here
+    #50 $finish;
+  end
+
+endmodule
