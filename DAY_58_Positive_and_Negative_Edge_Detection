@@ -1,0 +1,42 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHL
+// 
+// Create Date: 02/28/2024 04:58:13 PM
+// Design Name: 
+// Module Name: Positive_and_Negative_Edge_Detection
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+module edge_detectors (
+  input clk,
+  input data,
+  output reg posedgeDetect,
+  output reg negedgeDetect);
+  reg data_d;
+
+  always @(posedge clk) begin
+    data_d <= data;
+    posedgeDetect <= (data & ~data_d);
+  end
+
+  always @(negedge clk) begin
+    data_d <= data;
+    negedgeDetect <= (~data & data_d);
+  end
+endmodule
+
+
