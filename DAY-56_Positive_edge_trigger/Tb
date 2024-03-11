@@ -1,0 +1,51 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: KORIVI AKHIL
+// 
+// Create Date: 02/26/2024 11:07:04 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+`timescale 1ns/1ps
+
+module tb_positive_edge_trigger;
+  reg clk;
+  reg data;
+  wire posedgeDetect;
+
+  positive_edge_trigger uut (
+    .clk(clk),
+    .data(data),
+    .posedgeDetect(posedgeDetect));
+  // Clock generation
+  initial begin
+    clk = 0;
+    forever #5 clk = ~clk; // Toggle the clock every 5 time units
+  end
+  initial begin
+    data = 0;
+    #10 data = 1; // Positive edge should be detected here
+    #10 data = 0; // No edge
+    #10 data = 1; // Positive edge should be detected here
+    #50 $finish;
+  end
+
+endmodule
