@@ -1,0 +1,65 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02/28/2024 08:59:51 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+module tb_edge_detectors;
+
+  reg clk;
+  reg data;
+  wire posedgeDetect;
+  wire negedgeDetect;
+
+  // Instantiate the edge detector module
+  edge_detectors uut (
+    .clk(clk),
+    .data(data),
+    .posedgeDetect(posedgeDetect),
+    .negedgeDetect(negedgeDetect));
+
+  // Clock generation
+  initial begin
+    clk = 0;
+    forever #5 clk = ~clk;
+  end
+
+  // Stimulus generation
+  initial begin
+    data = 0;
+
+    // Test positive edge detection
+    #10 data = 1;
+    #10 data = 0;
+
+    // Test negative edge detection
+    #10 data = 1;
+    #10 data = 0;
+
+
+    #50 $finish;
+  end
+
+endmodule
