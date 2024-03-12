@@ -1,0 +1,52 @@
+
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 3/2/2024 06:29:46 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+module tb_johnson_counter;
+  reg clk;            // Clock signal
+  reg reset;          // Reset signal
+  wire [3:0] count;    // Output of the Johnson counter
+
+  johnson_counter uut (.clk(clk),.reset(reset),.count(count));
+    
+  initial begin
+    clk = 0;
+    forever #5 clk = ~clk; // Toggle the clock every 5 time units
+  end
+
+  initial begin
+    reset = 1; #10
+    reset = 0; #10
+    reset = 1; #10
+    reset = 0; #10
+    reset = 1; #10
+    reset = 0; #10
+    reset = 1; #10
+    reset = 0; #10
+    $finish;
+  end
+
+endmodule
+
