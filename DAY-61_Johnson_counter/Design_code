@@ -1,0 +1,38 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:KORIVI AKHIL
+// 
+// Create Date: 03/2/2024 06:27:40 PM
+// Design Name: 
+// Module Name: johnson_counter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module johnson_counter(
+    input clk,
+    input reset,
+    output reg [3:0] count);
+
+    always @(posedge clk or negedge reset) begin
+        if (reset == 0) begin
+            count <= 4'b0000; // Reset the counter to 0000 when reset is active
+        end
+        else begin
+            count <= {count[2:0], ~count[3]}; // Shift left and complement the MSB
+        end
+    end
+
+endmodule
+
