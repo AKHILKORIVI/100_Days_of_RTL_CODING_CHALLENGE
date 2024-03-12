@@ -1,0 +1,28 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// EngineerKORIVI AKHIL
+// 
+// Create Date: 02/29/2024 10:36:53 AM
+// Design Name: 
+// Module Name: Simple_Buffer
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Simple_Buffer( a,b);
+input a;
+output b;
+assign b=a;
+
+endmodule
