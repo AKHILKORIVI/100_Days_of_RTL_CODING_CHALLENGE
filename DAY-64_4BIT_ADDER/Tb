@@ -1,0 +1,38 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/5/2024 09:35:15 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+`timescale 1ns/1ps
+module adder_tb;
+reg [3:0] a;
+reg [3:0] b;
+wire [4:0] sum;
+adder uut (.a(a),.b(b),.sum(sum));
+initial begin
+     a=4'b0101; b=4'b0011; #10 // Test case 1
+     a=4'b1001; b=4'b0101; #10// Test case 2
+     a=4'b1111; b=4'b1111; #10// Test case 3
+     a=4'b0000; b=4'b1111; #10// Test case 4
+    #100 $finish;
+end
+endmodule
