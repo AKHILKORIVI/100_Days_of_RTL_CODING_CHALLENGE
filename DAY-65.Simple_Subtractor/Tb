@@ -1,0 +1,32 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/6/2024 07:36:29 PM
+// Design Name: 
+// Module Name: tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module tb_subtractor_simple;
+    reg [3:0] a;
+    reg [3:0] b;
+    wire [4:0] difference;
+    subtractor uut (.a(a),.b(b),.difference(difference));
+    initial begin
+        a = 4'b1010; 
+        b = 4'b0011;#10;
+        $finish;
+    end
+endmodule
