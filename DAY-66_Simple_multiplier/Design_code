@@ -1,0 +1,30 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/7/2024 09:03:37 PM
+// Design Name: 
+// Module Name: Simple_multiplier
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module multiplier_simple(
+    input wire [3:0] a,
+    input wire [3:0] b,
+    output reg [7:0] product);
+    always @* begin
+        product = a * b;
+    end
+endmodule
