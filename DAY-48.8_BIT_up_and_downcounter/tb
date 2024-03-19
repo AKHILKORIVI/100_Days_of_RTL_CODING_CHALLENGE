@@ -55,7 +55,7 @@ module UpDownCounter_TB;
         enable = 0; #50;
 
         // Test case 2: Down-counting when enable=0
-        mode = 1; // Set mode to down-counting
+        mode = 0; // Set mode to down-counting
         enable = 1; #10;
         enable = 0; #10;
 
