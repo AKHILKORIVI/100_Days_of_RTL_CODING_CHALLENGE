@@ -19,15 +19,22 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-module SISO (clock, clear, D, q);
-  input clock, clear, D;
-  output reg q;
-
-  always @(posedge clock or posedge clear)
-    if (clear)
-      q <= 1'b0;
-    else
-      q <= D;
+module df(clk,d,q);
+input clk;
+input d;
+output reg q=0;
+always @(posedge clk )
+begin
+q<=d;
+end
 endmodule
-
+module SISO(clk,d,q);
+input clk;
+input d;
+output q;
+wire q1,q2,q3;
+df df0(d,clk,q1);
+df df1(q1,clk,q2);
+df df2(q2,clk,q3);
+df df3(q3,clk,q);
+endmodule
