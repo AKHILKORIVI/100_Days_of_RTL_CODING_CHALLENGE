@@ -18,36 +18,27 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+`timescale 1ns/1ps
 
+module testbench();
+    reg clk;
+    reg d;
+    wire q;
 
-
-module tb_SISO;
-  reg clock;
-  reg clear;
-  reg D;
-  wire q;
-
-  SISO siso_inst (
-    .clock(clock),
-    .clear(clear),
-    .D(D),
-    .q(q));
-  always #5 clock = ~clock;
-  initial begin
-    clock = 0;
-    clear = 0;
-    D = 0;
-    #10 clear = 1;
-    #10 clear = 0; 
-
-    #10 D = 1;
-    #10 D = 0;
-    #10 D = 1;
-
-    #10 $finish;
-  end
-
+    SISO uut (
+        .clk(clk),
+        .d(d),
+        .q(q));
+    always #5 clk = ~clk;
+    initial begin
+        clk = 0;
+        d = 0;
+        #10 d = 1; // Apply input d = 1
+        #10 d = 0; // Apply input d = 0
+        #10 $finish;
+    end
 endmodule
+
 
 
 
