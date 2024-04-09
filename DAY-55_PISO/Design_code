@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer:KORIVI AKHIL
 // 
-// Create Date: 02/25/2024 09:45:32 PM
+// Create Date: 04/09/2024 12:20:25 PM
 // Design Name: 
-// Module Name: PISO
+// Module Name: PISO_CODE
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,40 +19,20 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`timescale 1ns / 1ps
-  module mux2x1(a,b,s,o);
-  input a,b,s;
-  output o ;
-  assign o = (s&a | (~s)&b);
-  endmodule
-  
-  module dff(a,clk,q,clr);
-    input a,clk;
-    input clr;
-    output reg q;
-    always @ (posedge clk) begin 
-    if(clr == 0) begin
-     q = 1'b0;
-    end
-    else begin
-      q <= a;
-    end
-    end
-    endmodule
-
-  module PISO(D,S1,S0,Clk,LorS,Clear);
-  input [3:0] D;
-  input S1,Clk,Clear,LorS;
-  output S0;
-  wire [7:0] w;
-  mux2x1 m3 (D[3],S1,LorS,w[0]);
-  mux2x1 m2 (D[2],w[1],LorS,w[2]);
-  mux2x1 m1 (D[1],w[3],LorS,w[4]);
-  mux2x1 m0 (D[0],w[5],LorS,w[6]);
-  dff    d3 (w[0],Clk,w[1],Clear);
-  dff    d2 (w[2],Clk,w[3],Clear);
-  dff    d1 (w[4],Clk,w[5],Clear);
-  dff    d0 (w[6],Clk,w[7],Clear);
-  
-  assign S0 = w[7];
-  endmodule
+module  piso(clk,rst,pi,so);
+input clk,rst;
+input [3:0]pi;
+output reg so;
+reg [3:0]temp;
+ 
+ always@(posedge clk)
+ begin
+   if(rst)
+     temp <= 4'b0000;
+   else 
+    begin
+      temp <= pi;
+      so <= temp[0];
+	end
+ end
+endmodule
