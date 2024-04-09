@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer:KORIVI AKHIL
 // 
-// Create Date: 02/25/2024 09:47:19 PM
+// Create Date: 04/09/2024 12:21:43 PM
 // Design Name: 
 // Module Name: tb
 // Project Name: 
@@ -22,39 +22,38 @@
 
 `timescale 1ns / 1ps
 
-module PISO_tb;
+module tb_piso;
 
-  reg [3:0] D;
-  reg S1, Clk, Clear, LorS;
-  wire S0;
+  // Signals
+  reg clk = 0;
+  reg rst = 1;
+  reg [3:0] pi = 4'b0000;
+  wire so;
 
-  PISO uut (.D(D),.S1(S1),.S0(S0),.Clk(Clk),.LorS(LorS),.Clear(Clear));
+  // Instantiate the PISO module
+  piso piso_inst (
+    .clk(clk),
+    .rst(rst),
+    .pi(pi),
+    .so(so)
+  );
+
+  // Clock generation
+  always #5 clk = ~clk;
+
+  // Stimulus
   initial begin
-    D = 4'b1010;
-    S1 = 0;
-    Clk = 0;
-    LorS = 0;
-    Clear = 1;
-    #10;
-    Clear = 0;
-    #10;
-    Clk = 1;
-    #10;
-    Clk = 0;
-    #10;
-    D = 4'b0101;
-    S1 = 1;
-    Clk = 0;
-    LorS = 1;
-    Clear = 1;
-    #10;
-    Clear = 0;
-    #10;
-    Clk = 1;
-    #10;
-    Clk = 0;
-    #10;
-    $finish;
+    #20; // Allow for reset
+    rst = 0;
+    #10; pi = 4'b0001;
+    #10; pi = 4'b0010;
+    #10; pi = 4'b0100;
+    #10; pi = 4'b1000;
+    #10; $finish;
   end
 
+  // Display the output
+  always @(posedge clk) $display("Output so: %b", so);
+
 endmodule
+
